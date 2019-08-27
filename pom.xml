@@ -67,7 +67,21 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+<!--            <version></version>-->
+<!--            <version></version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-core</artifactId>
+<!--            <version>2.2.0.BUILD-SNAPSHOT</version>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.netflix.feign</groupId>-->
 <!--            <artifactId>feign-okhttp</artifactId>-->

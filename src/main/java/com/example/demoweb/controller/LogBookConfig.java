@@ -1,9 +1,14 @@
 package com.example.demoweb.controller;
 
+import brave.Tracer;
+import brave.Tracing;
+import com.example.demoweb.MySpanCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.sleuth.annotation.NewSpanParser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.zalando.logbook.*;
 
 import java.util.List;
@@ -25,27 +30,19 @@ public class LogBookConfig {
 //    }
 
     @Bean
-//    @ConditionalOnMissingBean({Logbook.class})
     public Logbook logbook(final Predicate<HttpRequest> condition, final List<HeaderFilter> headerFilters, final List<QueryFilter> queryFilters, final List<BodyFilter> bodyFilters, final List<RequestFilter> requestFilters, final List<ResponseFilter> responseFilters, final Strategy strategy, final Sink sink) {
         return Logbook.builder()
                 .sink(sink)
                 .build();
     }
+
 //    @Bean
-//    public FeignClientInterface feignClient(final FeignClient.Builder feignClientBuilder) {
-//        return feignClientBuilder
-//                .targetClass(FeignClientInterface.class)
-//                .name("feign-client-name")
-//                .decode404(true)
-//                .primary(false)
-//                .build();
-//    }
-//    @Bean("build-by-builder")
-//    public TestClient buildByBuilder(final FeignClientBuilder feignClientBuilder) {
-//        return feignClientBuilder
-//                .forType(TestClient.class, "builderapp")
-//                .build();
+//    @Primary
+//    public NewSpanParser getParser(Tracer Tracer){
+//        return new MySpanCreator(Tracer);
 //    }
 
-//    @
+
+
+
 }

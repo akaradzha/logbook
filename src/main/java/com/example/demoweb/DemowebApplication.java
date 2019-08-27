@@ -13,10 +13,10 @@ public class DemowebApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemowebApplication.class, args);
     }
-//
-//    @Bean
-//    Logger.Level feignLoggerLevel() {
-//        return Logger.Level.FULL;
-//    }
+
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
 
 }
