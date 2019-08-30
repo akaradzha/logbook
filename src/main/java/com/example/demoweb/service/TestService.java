@@ -6,8 +6,8 @@ import com.example.demoweb.dto.ResponseDto;
 import com.example.demoweb.repository.CatRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.cloud.sleuth.annotation.NewSpan;
-//import org.springframework.cloud.sleuth.annotation.SpanTag;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
+import org.springframework.cloud.sleuth.annotation.SpanTag;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -17,7 +17,7 @@ public class TestService {
     @Autowired
     CatRepository catRepository;
 
-//    @NewSpan
+    @NewSpan
     public ResponseDto findCat() {
         return catRepository.findById(1L)
                 .map(cats -> ResponseDto.builder()
