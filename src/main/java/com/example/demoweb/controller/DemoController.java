@@ -46,7 +46,7 @@ public class DemoController {
     @GetMapping(value = "/test2", produces = "application/json")
     public ResponseDto test2() {
         log.info("test2");
-        testSpan("test2");
+//        testSpan("test2");
         return demoFeign2.test();
 //        return ResponseDto.builder()
 //                .msg("asdasd")
@@ -58,13 +58,6 @@ public class DemoController {
         log.info("test2");
         return testService.findCat();
     }
-
-    @NewSpan
-    private void testSpan(String s) {
-        log.info("new span");
-
-    }
-
 
 }
 

@@ -2,6 +2,7 @@ package com.example.demoweb.service;
 
 //import brave.SpanCustomizer;
 //import brave.Tracer;
+import brave.Tracer;
 import com.example.demoweb.dto.ResponseDto;
 import com.example.demoweb.repository.CatRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -27,18 +28,18 @@ public class TestService {
                 .orElseThrow(() -> new RuntimeException());
     }
 
-//    @Autowired
-//    Tracer tracer;
-//    @NewSpan(name = "testSpan2")
-//    public void testSpan2(@SpanTag("arg") String arg) {
-//        log.info(arg);
-////        this.customizer.st
-//        try {
-//            Thread.sleep(10);
-////            tracer.currentSpan().finish();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @Autowired
+    Tracer tracer;
+    @NewSpan(name = "db-testSpan2")
+    public void testSpan2(@SpanTag("arg") String arg) {
+        log.info(arg);
+//        this.customizer.st
+        try {
+            Thread.sleep(10);
+//            tracer.currentSpan()..finish();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
