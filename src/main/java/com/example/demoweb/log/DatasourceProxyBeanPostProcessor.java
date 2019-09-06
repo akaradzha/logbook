@@ -53,27 +53,27 @@ public class DatasourceProxyBeanPostProcessor implements BeanPostProcessor {
 //            loggingListener.setQueryLogEntryCreator(new InlineQueryLogEntryCreator());
 
             this.dataSource =
-//                    ProxyDataSourceBuilder.create(dataSource)
-                    ProxyDataSourceBuilderCustom.create(dataSource)
+                    ProxyDataSourceBuilder.create(dataSource)
+//                    ProxyDataSourceBuilderCustom.create(dataSource)
                     .name("MyDS")
-                    .logQueryByPB()
-//                    .multiline()
+//                    .logQueryByPB()
+                    .multiline()
 //                    .logQueryToSysOut()
 //                    .logQueryByJUL()
 //                    .listener(loggingListener)
 //                    .traceMethods()
-//                    .asJson()
-//                    .logQueryBySlf4j(SLF4JLogLevel.INFO)
+                    .asJson()
+                    .logQueryBySlf4j(SLF4JLogLevel.INFO)
                     .build();
         }
 
         @Override
         public Object invoke(final MethodInvocation invocation) throws Throwable {
-            final Method proxyMethod = ReflectionUtils.findMethod(this.dataSource.getClass(),
-                    invocation.getMethod().getName());
-            if (proxyMethod != null) {
-                return proxyMethod.invoke(this.dataSource, invocation.getArguments());
-            }
+//            final Method proxyMethod = ReflectionUtils.findMethod(this.dataSource.getClass(),
+//                    invocation.getMethod().getName());
+//            if (proxyMethod != null) {
+//                return proxyMethod.invoke(this.dataSource, invocation.getArguments());
+//            }
             return invocation.proceed();
         }
     }

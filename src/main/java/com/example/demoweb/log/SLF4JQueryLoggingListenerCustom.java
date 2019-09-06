@@ -43,8 +43,8 @@ public class SLF4JQueryLoggingListenerCustom extends SLF4JQueryLoggingListener {
 
     @Override
     protected void writeLog(String message) {
-        System.out.println(message);
-        super.writeLog(message);
+//        System.out.println(message);
+//        super.writeLog(message);
     }
 
 

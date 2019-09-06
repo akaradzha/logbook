@@ -127,6 +127,11 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
             <version>1.2.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>bp-common-libraries</groupId>-->
+<!--            <artifactId>cl.logging</artifactId>-->
+<!--            <version>2.6.10</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

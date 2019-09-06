@@ -14,6 +14,7 @@ import net.ttddyy.dsproxy.transform.ParameterTransformer;
 import net.ttddyy.dsproxy.transform.QueryTransformer;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -587,7 +588,12 @@ public class ProxyDataSourceBuilderCustom extends ProxyDataSourceBuilder {
 
     private SLF4JQueryLoggingListenerCustom buildSlf4jCustomQueryListener() {
         SLF4JQueryLoggingListenerCustom listener = new SLF4JQueryLoggingListenerCustom();
-        listener.setQueryLogEntryCreator(new DefaultJsonQueryLogEntryCreatorCustom(this.dataSource));
+        try {
+            String url = this.dataSource.getConnection().getMetaData().getURL();
+            listener.setQueryLogEntryCreator(new DefaultJsonQueryLogEntryCreatorCustom(url));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return listener;
     }
 

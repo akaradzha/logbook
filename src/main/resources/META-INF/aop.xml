@@ -1,0 +1,5 @@
+<aspectj>
+       <weaver options="-verbose">
+              <include within="com.example.demoweb..*"/>
+       </weaver>
+</aspectj>
